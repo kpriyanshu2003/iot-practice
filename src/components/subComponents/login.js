@@ -1,7 +1,7 @@
 export default function Login(props) {
   return (
     <div>
-      <div className="flex items-center border border-gray-200 rounded-2xl mt-5">
+      <div className="flex items-center rounded-2xl mt-5 bg-[#F2F2F2]">
         <svg
           width="20"
           height="21"
@@ -18,10 +18,10 @@ export default function Login(props) {
         <input
           type="text"
           placeholder="Enter email ID"
-          className="font-normal w-full py-4 bg-none outline-none font-normal border-none"
+          className="font-normal w-full py-4 bg-transparent outline-none font-normal border-none"
         />
       </div>
-      <div className="flex items-center border border-gray-200 rounded-2xl mt-5 font-normal">
+      <div className="flex items-center rounded-2xl mt-5 font-normal bg-[#F2F2F2]">
         <svg
           width="20"
           height="21"
@@ -38,7 +38,7 @@ export default function Login(props) {
         <input
           type="password"
           placeholder="Set Password"
-          className="font-normal w-full py-4 bg-none outline-none border-none "
+          className="font-normal w-full py-4 bg-transparent outline-none border-none "
         />
         <svg
           width="20"
@@ -57,7 +57,7 @@ export default function Login(props) {
       <input
         type="button"
         value="Login"
-        className="bg-[#BF13BF] w-full mt-5 border-none rounded-2xl py-4 text-white text-sm uppercase font-medium"
+        className="bg-[#BF13BF] w-full mt-5 border-none rounded-2xl py-4 text-white text-sm uppercase font-medium cursor-pointer"
       />
       <br />
       <div className="mt-5 text-sm">

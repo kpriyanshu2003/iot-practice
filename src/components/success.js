@@ -50,7 +50,7 @@ export default function Success() {
               login now
             </span>
             <br />
-            <img src={succ} alt="" />
+            <img src={succ} alt="" className="w-fit mx-auto" />
           </div>
           <div className="flex items-center">
             <svg

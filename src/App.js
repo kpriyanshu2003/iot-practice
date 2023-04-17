@@ -1,12 +1,26 @@
+import { Fragment } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Auth from "./components/auth";
+import Business from "./components/business";
 import Success from "./components/success";
 
-function App() {
+export default function App() {
   return (
-    <div className="">
-      <Success />
-    </div>
+    <Fragment>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Auth />} />
+          <Route path="auth" element={<Auth />} />
+          <Route path="business" element={<Business />} />
+          <Route path="success" element={<Success />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </BrowserRouter>
+    </Fragment>
   );
 }
 
-export default App;
+function Error() {
+  return <h1>This is an Error Page</h1>;
+}
