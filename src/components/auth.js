@@ -15,7 +15,7 @@ import SignT from "./subComponents/signup-tres";
 import SignCu from "./subComponents/signup-cuatro";
 import Business from "./business";
 
-export default function Auth(props) {
+export default function Auth() {
   const [uno, unoText] = useState({
     head: "Hey!",
     body: "Welcome back.",
@@ -28,6 +28,7 @@ export default function Auth(props) {
     head: "Login to your account",
     body: "Enter your registered email ID and password.",
   });
+
   const update = (n) => {
     switch (n) {
       case "lgn":

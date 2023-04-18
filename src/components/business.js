@@ -4,12 +4,28 @@ import icon from "../images/icon.svg";
 
 export default function Business() {
   const [btn, setBtn] = useState("#DADADA");
+  const [personal, setPersonal] = useState("#000000");
+  const [biz, setBiz] = useState("#787878");
 
   const handleEvent = () => {
     if (document.getElementById("TnC").checked) setBtn("#BF13BF");
     else setBtn("#DADADA");
   };
 
+  const handleAccType = () => {
+    if (document.getElementById("personal").checked) {
+      setPersonal("#000000");
+      setBiz("#787878");
+    } else {
+      setPersonal("#787878");
+      setBiz("#000000");
+    }
+  };
+
+  const propsToPass = {
+    prop1: "Value 1",
+    prop2: "Value 2",
+  };
   return (
     <Fragment>
       <div className="absolute top-2 left-32 flex items-center">
@@ -63,7 +79,10 @@ export default function Business() {
             <br />
             <span className="text-base">Account will be used by/for:</span>
           </div>
-          <div className="flex items-center justify-evenly mb-8">
+          <div
+            className="flex items-center justify-evenly mb-8"
+            onClick={handleAccType}
+          >
             <div className="flex items-center bg-[#F2F2F2] rounded-2xl mt-4 py-2 px-4 ">
               <input
                 type="radio"
@@ -73,7 +92,7 @@ export default function Business() {
               />
               <label
                 htmlFor="personal"
-                className="uppercase font-medium text-sm"
+                className={`uppercase font-medium text-sm text-[${personal}] text`}
               >
                 &nbsp;Individual
               </label>
@@ -83,7 +102,7 @@ export default function Business() {
               <input type="radio" name="acc-type" id="business" />
               <label
                 htmlFor="business"
-                className="uppercase font-medium text-sm"
+                className={`uppercase font-medium text-sm text-[${biz}]`}
               >
                 &nbsp;Business
               </label>
@@ -235,7 +254,7 @@ export default function Business() {
       </div>
 
       <div
-        className="absolute bottom-0 shadow-md w-full text-center h-24 flex items-center justify-center"
+        className="absolute bottom-0 shadow-2xl w-full text-center h-24 flex items-center justify-center"
         onClick={handleEvent}
       >
         <input type="checkbox" name="TnC" id="TnC" />
@@ -248,10 +267,8 @@ export default function Business() {
           <span className="text-[#333333]">, and the </span>
           <span className="text-[#BF13BF]">Privacy Policy.</span>
         </label>
-        <div
-          className={`flex items-center w-80 bg-[${btn}] ml-20 rounded-2xl`}
-          onClick={console.log("Under Construction")}
-        >
+        {/* } <Link to="/auth" state={propsToPass}> */}
+        <div className={`flex items-center w-80 bg-[${btn}] ml-20 rounded-2xl`}>
           <input
             type="button"
             value="next"
@@ -272,6 +289,7 @@ export default function Business() {
             />
           </svg>
         </div>
+        {/* } </Link> */}
       </div>
     </Fragment>
   );
