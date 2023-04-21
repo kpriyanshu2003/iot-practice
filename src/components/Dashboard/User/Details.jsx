@@ -1,6 +1,6 @@
 export default function Details() {
   return (
-    <div className="grid gap-10 grid-col-1 grid-row-3">
+    <div className="grid gap-10 grid-col-1 grid-row-3 pr-40">
       <div className="shadow-md p-10 rounded-2xl">
         <div>
           <span className="font-medium text-sm text-[#787878]">

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Uno from "./Cards/uno";
-import Dos from "./Cards/dos";
+import Uno from "./Cards/Uno";
+import Dos from "./Cards/Dos";
 
 export default function Cards() {
   const update = (n) => {

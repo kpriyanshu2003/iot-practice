@@ -17,7 +17,7 @@ export default function SideBar(props) {
       <div className="grid gap-5 grid-cols-1 grid-row-5">
         <div
           className={`flex items-center p-2 rounded-2xl ${
-            props.value === 0 ? "bg-[#DBD3EB]" : ""
+            props.value === 0 ? "bg-[#DBD3EB] bg-opacity-50 " : ""
           } cursor-pointer`}
           onClick={() => props.update("detail")}
         >
@@ -62,7 +62,7 @@ export default function SideBar(props) {
 
         <div
           className={`flex items-center p-2 rounded-2xl ${
-            props.value === 2 ? "bg-[#DBD3EB]" : ""
+            props.value === 2 ? "bg-[#DBD3EB] bg-opacity-50 " : ""
           } cursor-pointer`}
           onClick={() => props.update("card")}
         >
