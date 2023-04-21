@@ -1,10 +1,9 @@
-import { Fragment } from "react";
 import Avatar from "../../images/userAvatar.png";
 import DashImg from "../../images/dashboard-uno.svg";
 
 export default function Home() {
   return (
-    <Fragment>
+    <div className="pr-10">
       <div className="flex items-center justify-between w-[80rem] font-raleway">
         <div className=" flex items-center">
           <img src={Avatar} alt="" className="rounded-full w-16 h-16" />
@@ -227,6 +226,6 @@ export default function Home() {
           <img src={DashImg} alt="" />
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 }
