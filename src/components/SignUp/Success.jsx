@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
-import icon from "../images/icon.svg";
-import succ from "../images/signup-acc-success.svg";
+import icon from "../../images/icon.svg";
+import succ from "../../images/signup-acc-success.svg";
+import { Link } from "react-router-dom";
 export default function Success() {
   return (
     <Fragment>
@@ -45,13 +46,16 @@ export default function Success() {
               You can login to your account through the credentials created.
             </span>
           </div>
-          <div className="mt-8">
-            <span className="mt-8 uppercase font-medium text-[#BF32BF]">
-              login now
-            </span>
-            <br />
-            <img src={succ} alt="" className="w-fit mx-auto" />
-          </div>
+          <Link to="/login">
+            <div className="mt-8 cursor-pointer">
+              <span className="mt-8 uppercase font-medium text-[#BF32BF]">
+                login now
+              </span>
+              <br />
+            </div>
+          </Link>
+          <img src={succ} alt="" className="w-fit mx-auto" />
+          <br />
           <div className="flex items-center">
             <svg
               width="20"

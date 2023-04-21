@@ -1,4 +1,5 @@
-export default function Login(props) {
+import { Link } from "react-router-dom";
+export default function SignU(props) {
   return (
     <div>
       <div className="flex items-center rounded-2xl mt-10 bg-[#F2F2F2]">
@@ -61,16 +62,14 @@ export default function Login(props) {
           />
         </svg>
       </div>
-
-      <div className="text-sm mt-12 text-center">
-        <span className="cursor-default">Already have an account? </span>
-        <span
-          className="uppercase text-[#BF13BF] font-medium cursor-pointer"
-          onClick={() => props.update("lgn")}
-        >
-          Login
-        </span>
-      </div>
+      <Link to="/login">
+        <div className="text-sm mt-12 text-center">
+          <span className="cursor-default">Already have an account? </span>
+          <span className="uppercase text-[#BF13BF] font-medium cursor-pointer">
+            Login
+          </span>
+        </div>
+      </Link>
     </div>
   );
 }

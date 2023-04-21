@@ -1,28 +1,27 @@
-export default function Login(props) {
+export default function SignT(props) {
   return (
     <div>
       <div className="flex items-center border border-gray-200 rounded-2xl mt-5">
         <input
           type="text"
           placeholder="Enter Company Name"
-          className="font-normal w-full border-none py-4 pl-4 bg-none outline-none font-normal"
+          className="font-normal w-full border-none py-4 pl-4 bg-transparent outline-none font-normal"
         />
       </div>
       <div className="flex items-center border border-gray-200 rounded-2xl mt-5">
         <input
           type="text"
           placeholder="Select business type"
-          className="font-normal w-full border-none py-4 pl-4 bg-none outline-none font-normal"
+          className="font-normal w-full border-none py-4 pl-4 bg-transparent outline-none font-normal"
         />
       </div>
 
-      <div className="mt-10 flex items-center">
+      <div className="mt-10 flex items-center cursor-pointer">
         <input
           type="button"
           value="next"
-          className="bg-[#BF13BF] w-full border-none rounded-2xl py-4 text-white text-center text-sm uppercase font-medium"
+          className="bg-[#BF13BF] w-full border-none rounded-2xl py-4 text-white text-center text-sm uppercase font-medium cursor-pointer"
           onClick={() => props.update("sgn-Cu")}
-          // Change the entire page to business signup
         />
         <svg
           width="20"

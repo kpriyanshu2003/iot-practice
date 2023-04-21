@@ -1,15 +1,14 @@
 import { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
-import icon from "../images/icon.svg";
+import icon from "../../images/icon.svg";
 
-export default function Business() {
-  const [btn, setBtn] = useState("#DADADA");
+export default function Business(props) {
+  const [btn, setBtn] = useState("bg-[#DADADA]");
   const [personal, setPersonal] = useState("#000000");
   const [biz, setBiz] = useState("#787878");
 
   const handleEvent = () => {
-    if (document.getElementById("TnC").checked) setBtn("#BF13BF");
-    else setBtn("#DADADA");
+    if (document.getElementById("TnC").checked) setBtn("bg-[#BF13BF]");
+    else setBtn("bg-[#DADADA]");
   };
 
   const handleAccType = () => {
@@ -22,28 +21,24 @@ export default function Business() {
     }
   };
 
-  const propsToPass = {
-    prop1: "Value 1",
-    prop2: "Value 2",
-  };
   return (
     <Fragment>
-      <div className="absolute top-2 left-32 flex items-center">
-        <Link to="/auth">
-          <svg
-            width="20"
-            height="18"
-            viewBox="0 0 20 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="mr-8"
-          >
-            <path
-              d="M8.47839 17.154C8.65286 17.3121 8.88231 17.3955 9.11754 17.3863C9.35277 17.3772 9.57506 17.2762 9.73674 17.1051C9.89843 16.934 9.98664 16.7064 9.98246 16.471C9.97828 16.2356 9.88205 16.0113 9.71439 15.846L3.42759 9.90003H18.6964C18.9351 9.90003 19.164 9.8052 19.3328 9.63642C19.5016 9.46764 19.5964 9.23872 19.5964 9.00003C19.5964 8.76133 19.5016 8.53241 19.3328 8.36363C19.164 8.19485 18.9351 8.10003 18.6964 8.10003H3.42519L9.71439 2.15163C9.80317 2.07121 9.875 1.97388 9.92568 1.86534C9.97635 1.7568 10.0049 1.63923 10.0095 1.51954C10.0142 1.39984 9.99486 1.28042 9.95276 1.16828C9.91066 1.05613 9.8466 0.953521 9.76433 0.866457C9.68205 0.779393 9.58323 0.709628 9.47365 0.661252C9.36406 0.612876 9.24592 0.586863 9.12616 0.584737C9.00639 0.58261 8.8874 0.604414 8.77617 0.648869C8.66494 0.693324 8.5637 0.759537 8.47839 0.843626L0.776791 8.12762C0.5852 8.30815 0.458638 8.54693 0.416791 8.80682C0.38848 8.93699 0.3893 9.07181 0.419191 9.20163C0.462377 9.45778 0.587924 9.69287 0.776791 9.87123L8.47839 17.1552V17.154Z"
-              fill="#333333"
-            />
-          </svg>
-        </Link>
+      <div className="absolute top-2 left-16 flex items-center">
+        <svg
+          width="20"
+          height="18"
+          viewBox="0 0 20 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="mr-8"
+          onClick={() => props.updateMain("sign")}
+        >
+          <path
+            d="M8.47839 17.154C8.65286 17.3121 8.88231 17.3955 9.11754 17.3863C9.35277 17.3772 9.57506 17.2762 9.73674 17.1051C9.89843 16.934 9.98664 16.7064 9.98246 16.471C9.97828 16.2356 9.88205 16.0113 9.71439 15.846L3.42759 9.90003H18.6964C18.9351 9.90003 19.164 9.8052 19.3328 9.63642C19.5016 9.46764 19.5964 9.23872 19.5964 9.00003C19.5964 8.76133 19.5016 8.53241 19.3328 8.36363C19.164 8.19485 18.9351 8.10003 18.6964 8.10003H3.42519L9.71439 2.15163C9.80317 2.07121 9.875 1.97388 9.92568 1.86534C9.97635 1.7568 10.0049 1.63923 10.0095 1.51954C10.0142 1.39984 9.99486 1.28042 9.95276 1.16828C9.91066 1.05613 9.8466 0.953521 9.76433 0.866457C9.68205 0.779393 9.58323 0.709628 9.47365 0.661252C9.36406 0.612876 9.24592 0.586863 9.12616 0.584737C9.00639 0.58261 8.8874 0.604414 8.77617 0.648869C8.66494 0.693324 8.5637 0.759537 8.47839 0.843626L0.776791 8.12762C0.5852 8.30815 0.458638 8.54693 0.416791 8.80682C0.38848 8.93699 0.3893 9.07181 0.419191 9.20163C0.462377 9.45778 0.587924 9.69287 0.776791 9.87123L8.47839 17.1552V17.154Z"
+            fill="#333333"
+          />
+        </svg>
+
         <img src={icon} alt="" />
         <svg
           width="60"
@@ -84,12 +79,7 @@ export default function Business() {
             onClick={handleAccType}
           >
             <div className="flex items-center bg-[#F2F2F2] rounded-2xl mt-4 py-2 px-4 ">
-              <input
-                type="radio"
-                name="acc-type"
-                id="personal"
-                defaultChecked
-              />
+              <input type="radio" name="acc-type" id="personal" />
               <label
                 htmlFor="personal"
                 className={`uppercase font-medium text-sm text-[${personal}] text`}
@@ -99,7 +89,12 @@ export default function Business() {
             </div>
             &emsp;
             <div className="flex items-center bg-[#F2F2F2] rounded-2xl py-2 px-4 mt-4 ">
-              <input type="radio" name="acc-type" id="business" />
+              <input
+                type="radio"
+                name="acc-type"
+                id="business"
+                defaultChecked
+              />
               <label
                 htmlFor="business"
                 className={`uppercase font-medium text-sm text-[${biz}]`}
@@ -119,6 +114,7 @@ export default function Business() {
                 id=""
                 placeholder="Select Currency"
                 className="bg-transparent outline-none border-none w-full p-3 text-sm"
+                required
               />
               <svg
                 width="40"
@@ -147,6 +143,7 @@ export default function Business() {
                   id=""
                   placeholder="Enter your First Name"
                   className=" w-full p-3 bg-transparent outline-none border-none text-sm"
+                  required
                 />
               </div>
               <div className="bg-[#F2F2F2] rounded-2xl mt-4 ">
@@ -156,6 +153,7 @@ export default function Business() {
                   id=""
                   placeholder="Enter your Last Name"
                   className=" w-full p-3 bg-transparent outline-none border-none text-sm"
+                  required
                 />
               </div>
               <div className="bg-[#F2F2F2] rounded-2xl mt-4">
@@ -165,6 +163,7 @@ export default function Business() {
                   id=""
                   placeholder="Enter your Date of birth (dd/mm/yyyy)"
                   className="bg-transparent w-full p-3 outline-none border-none text-sm"
+                  required
                 />
               </div>
               <div className="rounded-2xl mt-4  bg-[#F2F2F2] flex items-center">
@@ -174,6 +173,7 @@ export default function Business() {
                   id=""
                   placeholder="Enter your Nationality"
                   className="bg-transparent w-full p-3 outline-none border-none text-sm"
+                  required
                 />
                 <svg
                   width="40"
@@ -203,6 +203,7 @@ export default function Business() {
                 type="text"
                 placeholder="Address Line 1"
                 className="w-full p-3 bg-transparent outline-none border-none text-sm"
+                required
               />
             </div>
             <div className="bg-[#F2F2F2] rounded-2xl mt-4">
@@ -225,6 +226,7 @@ export default function Business() {
                 type="text"
                 placeholder="City/Town"
                 className="w-full p-3 bg-transparent outline-none border-none text-sm"
+                required
               />
             </div>
             <div className="rounded-2xl mt-4 bg-[#F2F2F2]">
@@ -232,6 +234,7 @@ export default function Business() {
                 type="text"
                 placeholder="State"
                 className="w-full p-3 bg-transparent outline-none border-none text-sm"
+                required
               />
             </div>
 
@@ -240,6 +243,7 @@ export default function Business() {
                 type="text"
                 placeholder="Country"
                 className="w-full p-3 bg-transparent outline-none border-none text-sm"
+                required
               />
             </div>
             <div className="rounded-2xl mt-4 bg-[#F2F2F2]">
@@ -247,6 +251,7 @@ export default function Business() {
                 type="text"
                 placeholder="Pin-Code"
                 className="w-full p-3 bg-transparent outline-none border-none text-sm"
+                required
               />
             </div>
           </div>
@@ -257,22 +262,31 @@ export default function Business() {
         className="absolute bottom-0 shadow-2xl w-full text-center h-24 flex items-center justify-center"
         onClick={handleEvent}
       >
-        <input type="checkbox" name="TnC" id="TnC" />
-        <label htmlFor="TnC">
-          &nbsp;{" "}
-          <span className="text-[#333333]">
-            I have read and I agree to the{" "}
-          </span>
-          <span className="text-[#BF13BF]">Terms and Conditions</span>
-          <span className="text-[#333333]">, and the </span>
-          <span className="text-[#BF13BF]">Privacy Policy.</span>
-        </label>
-        {/* } <Link to="/auth" state={propsToPass}> */}
-        <div className={`flex items-center w-80 bg-[${btn}] ml-20 rounded-2xl`}>
+        <div className="cursor-pointer">
+          <input
+            type="checkbox"
+            name="TnC"
+            id="TnC"
+            className="cursor-pointer"
+          />
+          <label htmlFor="TnC" className="cursor-pointer">
+            &nbsp;{" "}
+            <span className="text-[#333333]">
+              I have read and I agree to the{" "}
+            </span>
+            <span className="text-[#BF13BF]">Terms and Conditions</span>
+            <span className="text-[#333333]">, and the </span>
+            <span className="text-[#BF13BF]">Privacy Policy.</span>
+          </label>
+        </div>
+        <div
+          className={`flex items-center w-80 ${btn} ml-20 rounded-2xl cursor-pointer`}
+          onClick={() => props.updateMain("sign-Next")}
+        >
           <input
             type="button"
             value="next"
-            className="uppercase py-4 w-full text-white border-none outline-none pl-12"
+            className="uppercase py-4 w-full text-white border-none outline-none pl-12 cursor-pointer"
             id="next-btn"
           />
           <svg
@@ -289,7 +303,6 @@ export default function Business() {
             />
           </svg>
         </div>
-        {/* } </Link> */}
       </div>
     </Fragment>
   );

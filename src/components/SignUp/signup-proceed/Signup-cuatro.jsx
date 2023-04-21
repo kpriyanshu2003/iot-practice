@@ -1,4 +1,4 @@
-export default function Login(props) {
+export default function SignCu(props) {
   return (
     <div>
       <div className="flex items-center border border-gray-200 rounded-2xl mt-5 bg-[#F2F2F2]">
@@ -12,12 +12,12 @@ export default function Login(props) {
         </div>
       </div>
 
-      <div className="mt-10 flex items-center">
+      <div className="mt-10 flex items-center cursor-pointer">
         <input
           type="button"
           value="proceed"
-          className="bg-[#BF13BF] w-full border-none rounded-2xl py-4 text-white text-center text-sm uppercase font-medium"
-          onClick={() => props.update("sng-Cu")}
+          className="bg-[#BF13BF] w-full border-none rounded-2xl py-4 text-white text-center text-sm uppercase font-medium cursor-pointer"
+          onClick={() => props.update("success")}
           // Change the entire page to success
         />
       </div>

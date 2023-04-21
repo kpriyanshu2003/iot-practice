@@ -1,14 +1,14 @@
-import items from "../src/components/subComponents/transAction-sample.json";
+import items from "./transAction-sample.json";
 import { Fragment, useState } from "react";
+import Avatar from "../../images/userAvatar.png";
 
 export default function Transaction() {
-  const update = (n) => {
-    setMain(<UserDetails key={n} />);
+  const update = () => {
+    setMain(<UserDetails />);
   };
-  // const [main, setMain] = useState(<TransMain update={update} />);
-  const [main, setMain] = useState(<UserDetails key={0} />);
+  const [main, setMain] = useState(<TransMain update={update} />);
   return (
-    <div className="font-raleway w-[85rem] ">
+    <div className="font-raleway w-[85rem] pr-10">
       <div className="flex items-center justify-between">
         <span className="font-semibold text-base text-[#787878]">
           Activities
@@ -46,7 +46,8 @@ export default function Transaction() {
           </div>
         </div>
       </div>
-      <div>{main}</div>
+
+      <div className="font-raleway">{main}</div>
     </div>
   );
 }
@@ -55,8 +56,9 @@ function TransMain(props) {
   const itemsT = items.transactions.map((i, index) => (
     <div className="grid place-items-center" key={i.key}>
       <div
-        className="w-full grid grid-cols-4 w-full text-center items-center justify-evenly font-raleway p-4 whitespace-nowrap"
-        onClick={() => props.update(i.key)}
+        className="w-full grid grid-cols-4 w-full text-center items-center justify-evenly font-raleway p-4 whitespace-nowrap cursor-pointer"
+        // onClick={() => props.update(i.key)} -> Changed when api provided
+        onClick={() => props.update()}
       >
         <div className="flex items-center ml-20">
           <img src="https://picsum.photos/40" alt="" className="rounded-full" />
@@ -69,7 +71,7 @@ function TransMain(props) {
             i.type === "credit" ? "29CC7A" : "333333"
           }]`}
         >
-          Amount Here
+          $ 999.00
         </div>
       </div>
       {index === items.transactions.length - 1 ? (
@@ -79,6 +81,7 @@ function TransMain(props) {
       )}
     </div>
   ));
+
   return (
     <Fragment>
       <div className="mt-10 grid gap-5 grid-cols-4 shadow-md text-center w-full rounded-2xl p-3">
@@ -91,15 +94,18 @@ function TransMain(props) {
     </Fragment>
   );
 }
-function UserDetails(n) {
+
+function UserDetails() {
   return (
     <Fragment>
       <div className="mt-10 shadow-md w-full rounded-2xl p-4">
         <div>
           <div className="flex items-center justify-between">
-            <div className="flex items-top">
-              <span>Transaction ID:{"  "}</span>
-              <span className="font-bold">VE123445DSAD123</span>
+            <div className="flex items-center">
+              <span className="font-normal text-base">
+                Transaction ID:{"  "}
+              </span>
+              <span className="font-semibold text-base"> VE123445DSAD123</span>
               <svg
                 width="20"
                 height="20"
@@ -114,27 +120,62 @@ function UserDetails(n) {
                 />
               </svg>
             </div>
-            <div>Completed</div>
+            <div className="flex items-center">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.152 2.27645L11.34 2.74445C11.7638 2.91128 12.2351 2.91128 12.6588 2.74445L13.8468 2.27645C14.5462 2.00139 15.325 2.0084 16.0193 2.29601C16.7136 2.58363 17.2693 3.1294 17.5692 3.81845L18.078 4.98845C18.2597 5.406 18.5929 5.73917 19.0104 5.92085L20.1804 6.42965C20.8698 6.72964 21.4158 7.28547 21.7034 7.98005C21.991 8.67463 21.9979 9.45373 21.7224 10.1532L21.2544 11.3412C21.0879 11.7647 21.0879 12.2354 21.2544 12.6588L21.7224 13.8468C21.9975 14.5462 21.9905 15.325 21.7029 16.0193C21.4153 16.7136 20.8695 17.2693 20.1804 17.5692L19.0104 18.078C18.5928 18.2596 18.2596 18.5928 18.078 19.0104L17.5692 20.1804C17.2693 20.8698 16.7134 21.4158 16.0188 21.7034C15.3243 21.991 14.5452 21.9979 13.8456 21.7224L12.6576 21.2544C12.2342 21.0879 11.7635 21.0879 11.34 21.2544L10.152 21.7224C9.45268 21.9975 8.67387 21.9905 7.97957 21.7029C7.28527 21.4153 6.72964 20.8695 6.42965 20.1804L5.92085 19.0104C5.73917 18.5929 5.406 18.2597 4.98845 18.078L3.81845 17.5692C3.12911 17.2693 2.58312 16.7134 2.29549 16.0188C2.00785 15.3243 2.00102 14.5452 2.27645 13.8456L2.74445 12.6576C2.91097 12.2342 2.91097 11.7635 2.74445 11.34L2.27645 10.152C2.00139 9.45268 2.0084 8.67387 2.29601 7.97957C2.58363 7.28527 3.1294 6.72964 3.81845 6.42965L4.98845 5.92085C5.406 5.73917 5.73917 5.406 5.92085 4.98845L6.42965 3.81845C6.72964 3.12911 7.28547 2.58312 7.98005 2.29549C8.67463 2.00785 9.45373 2.00102 10.1532 2.27645H10.152ZM15.1512 9.20045L10.7736 14.1252L8.82365 12.1752C8.71048 12.066 8.55892 12.0055 8.40161 12.0068C8.24429 12.0082 8.0938 12.0713 7.98255 12.1826C7.87131 12.2938 7.80821 12.4443 7.80684 12.6016C7.80547 12.7589 7.86595 12.9105 7.97525 13.0236L10.3752 15.4236C10.433 15.4814 10.502 15.5268 10.5779 15.557C10.6539 15.5872 10.7352 15.6015 10.8169 15.5992C10.8986 15.5968 10.9789 15.5778 11.053 15.5433C11.1271 15.5088 11.1933 15.4595 11.2476 15.3984L16.0476 9.99845C16.1535 9.87958 16.2077 9.72354 16.1985 9.56466C16.1893 9.40578 16.1173 9.25707 15.9984 9.15125C15.8796 9.04542 15.7235 8.99116 15.5647 9.00038C15.4058 9.00961 15.2571 9.08158 15.1512 9.20045Z"
+                  fill="#29CC7A"
+                />
+              </svg>
+              <span className="text-[#29CC7A]">Completed</span>
+            </div>
           </div>
-          <div className="mt-10">
-            <span>12:00 PM, 2nd Feb 2022</span>
+          <div className="mt-4">
+            <span className="text-[#787878] font-medium text-base">
+              12:00 PM, 2nd Feb 2022
+            </span>
+          </div>
+        </div>
+        <hr className="mt-10 mb-3" />
+        <div className="grid gap-6 grid-cols-3 grid-rows-2 place-items-center">
+          <div>
+            <span className="font-base font-normal text-[#333333]">
+              Paid to @saiswar upchakra
+            </span>
+          </div>
+          <div>
+            <span className="font-base font-normal text-[#333333]">From</span>
+          </div>
+          <div>
+            <span className="font-base font-normal text-[#333333]">
+              Amount Paid:
+            </span>
+          </div>
+          <div className="flex items-center">
+            <img src={Avatar} alt="" className="rounded-full w-[40px]" />{" "}
+            <span className="font-medium font-base">Sai Swarup Chakra</span>
+          </div>
+          <div>
+            <span className="font-medium font-base">$ USD Wallet</span>
+          </div>
+          <div>
+            <span className="font-medium font-base">$ 999.00</span>
           </div>
         </div>
         <hr className="mt-10" />
-        <div className="grid gap-10 grid-cols-3 grid-rows-2 text-center">
-          <div>Paid to @saiswarupchakra</div>
-          <div>From</div>
-          <div>Amount Paid:</div>
-          <div>Sai Swarup Chakra</div>
-          <div>$ USD Wallet </div>
-          <div>$ 999.00</div>
-        </div>
-        <hr className="mt-10" />
-        <div>
-          <span>Message</span>
+        <div className="mt-4">
+          <span className="font-normal font-base text-[#787878]">Message</span>
           <br />
           <br />
-          <span>Bussiness dealings</span>
+          <span className="font-medium font-base text-[#333333]">
+            Bussiness dealings
+          </span>
         </div>
       </div>
     </Fragment>
