@@ -56,7 +56,7 @@ function TransMain(props) {
   const itemsT = items.transactions.map((i, index) => (
     <div className="grid place-items-center" key={i.key}>
       <div
-        className="w-full grid grid-cols-4 w-full text-center items-center justify-evenly font-raleway p-4 whitespace-nowrap cursor-pointer"
+        className="w-full grid grid-cols-4 text-center items-center justify-evenly font-raleway p-4 whitespace-nowrap cursor-pointer"
         // onClick={() => props.update(i.key)} -> Changed when api provided
         onClick={() => props.update()}
       >
@@ -102,10 +102,11 @@ function UserDetails() {
         <div>
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <span className="font-normal text-base">
-                Transaction ID:{"  "}
+              <span className="font-normal text-base">Transaction ID:</span>
+              <span className="ml-3 font-semibold text-base">
+                {" "}
+                VE123445DSAD123
               </span>
-              <span className="font-semibold text-base"> VE123445DSAD123</span>
               <svg
                 width="20"
                 height="20"
@@ -158,8 +159,10 @@ function UserDetails() {
             </span>
           </div>
           <div className="flex items-center">
-            <img src={Avatar} alt="" className="rounded-full w-[40px]" />{" "}
-            <span className="font-medium font-base">Sai Swarup Chakra</span>
+            <img src={Avatar} alt="" className="rounded-full w-[40px]" />
+            <span className=" ml-3 font-medium font-base">
+              Sai Swarup Chakra
+            </span>
           </div>
           <div>
             <span className="font-medium font-base">$ USD Wallet</span>

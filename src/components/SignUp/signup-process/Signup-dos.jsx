@@ -1,7 +1,7 @@
 export default function SignD(props) {
   return (
     <div>
-      <div className="flex items-center bg-[#F2F2F2] rounded-2xl mt-5 bg-[#F2F2F2]">
+      <div className="flex items-center bg-[#F2F2F2] rounded-2xl mt-5">
         <svg
           width="16"
           height="13"
@@ -19,7 +19,7 @@ export default function SignD(props) {
         <input
           type="text"
           placeholder="Enter email ID"
-          className="font-normal w-full border-none py-4 bg-transparent outline-none font-normal"
+          className="font-normal w-full border-none py-4 bg-transparent outline-none"
         />
       </div>
       <div className="flex items-center rounded-2xl mt-5 bg-[#F2F2F2]">
@@ -40,7 +40,7 @@ export default function SignD(props) {
         <input
           type="text"
           placeholder="Set Password"
-          className="font-normal w-full border-none py-4 bg-transparent outline-none font-normal"
+          className="font-normal w-full border-none py-4 bg-transparent outline-none"
         />
         <svg
           width="20"
@@ -74,7 +74,7 @@ export default function SignD(props) {
         <input
           type="text"
           placeholder="Confirm Password"
-          className="font-normal w-full border-none py-4 bg-transparent outline-none font-normal"
+          className="font-normal w-full border-none py-4 bg-transparent outline-none"
         />
         <svg
           width="20"
