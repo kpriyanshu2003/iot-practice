@@ -9,14 +9,16 @@ export default function Details() {
         </div>
         <div>
           <span className="font-medium text-xs text-[#787878]">
-            Phone Number
+            Phone Number :
           </span>
           <span className="font-medium text-base text-[#333333]">
             +234 1234567890
           </span>
         </div>
         <div>
-          <span className="font-medium text-xs text-[#787878]">Email ID</span>
+          <span className="font-medium text-xs text-[#787878]">
+            Email ID :{" "}
+          </span>
           <span className="font-medium text-base text-[#333333]">
             abhijeetmohapatra@gmail.com
           </span>

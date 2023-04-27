@@ -61,7 +61,7 @@ function TransMain(props) {
         onClick={() => props.update()}
       >
         <div className="flex items-center ml-20">
-          <img src="https://picsum.photos/40" alt="" className="rounded-full" />
+          <img src={Avatar} alt="" className="rounded-full h-10 w-10" />
           <span className="text-base font-semibold ml-4">{i.from}</span>
         </div>
         <div className="text-base font-medium">{i.time}</div>
